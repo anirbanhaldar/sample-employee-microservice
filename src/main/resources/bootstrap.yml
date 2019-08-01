@@ -1,0 +1,30 @@
+### This is the main way to configure the application (other than annotations).
+### This fils is in Yaml format but you can also do this using the traditional
+### Java properties file.
+spring:
+  application:
+    name: sample-employee-microservice
+  profiles:
+      active: default
+server:
+    port: 8092
+---
+spring:
+  profiles: default
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    config:
+      uri: http://localhost:8088/
+      fail-fast: false
+---
+
+spring:
+  profiles: cloud
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    config:
+      uri: http://localhost:8088/
+      fail-fast: false
+
