@@ -35,7 +35,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @RestController
 @Slf4j
-@RequestMapping(value = "/EmployeeService")
+@RequestMapping(value = "/employeeService")
 public class EmployeeController extends AbstractRestHandler {
 
 	@Autowired
