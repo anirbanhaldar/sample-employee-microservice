@@ -1,0 +1,6 @@
+<script async="async" defer="defer"
+        src="https://maps.googleapis.com/maps/api/js?key=/*AIzaSyDzJo5i-7yzolbmGuZYvCw4l7ImcKFJSD0*/&ampcallback=initMap;">
+</script>
+
+var fenway = {lat: document.getElementById('lat').value, lng: document.getElementById('lang').value};
+google.maps.event.addDomListener(window, 'load', initialize(document.getElementById('lat').value, document.getElementById('lng').value));

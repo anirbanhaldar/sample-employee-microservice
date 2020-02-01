@@ -1,0 +1,63 @@
+spring:
+   profiles:
+        active: default
+---
+spring:
+  application:
+    name: sample-employee-microservice
+  profiles: default
+  datasource:
+           url: jdbc:h2:mem:testdb
+           driverClassName: org.h2.Driver
+           username: sa
+           password: 
+  jpa:
+     database-platform: org.hibernate.dialect.H2Dialect
+     hibernate:
+        ddl-auto: create
+     show-sql: true
+
+  h2:
+    console:
+       enabled: true
+       path: /h2-console  
+server:
+  port: 8090
+
+      
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+management:
+  #port: 8091
+  endpoint:
+     health:
+        show-details: always
+  
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include:   info, health, refresh
+
+
+#todo: make sure to always enable security in production
+
+
+poc:
+ rabbitmq:
+     exchange: deloitte.exchange
+     queue: deloitte.queue
+     routingkey: deloitte.routingKey
+    
+     
+logging:
+     level:
+        org: 
+         springframework:
+                       web: INFO
+         hibernate: ERROR
+     file: logs/employee-microservice.log

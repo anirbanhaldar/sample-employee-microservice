@@ -6,8 +6,6 @@ spring:
     name: sample-employee-microservice
   profiles:
       active: default
-server:
-    port: 8092
 ---
 spring:
   profiles: default
@@ -15,6 +13,7 @@ spring:
     allow-bean-definition-overriding: true
   cloud:
     config:
+      enabled: false
       uri: http://localhost:8088/
       fail-fast: false
 ---
